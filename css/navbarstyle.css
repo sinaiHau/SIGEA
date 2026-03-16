@@ -1,0 +1,214 @@
+
+.main-header {
+    background-color: white;
+    width: 100%;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Contenedor de los escudos */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px; 
+    margin-bottom: 20px;
+    width: 100%;
+    flex-wrap: wrap; 
+}
+
+.logo-img {
+    height: 60px; 
+    width: auto;
+}
+
+/* Contenedor que centra la cápsula */
+.navbar-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50px; /* En laptop se mantiene fijo */
+    padding: 0 10px;
+    margin-top: 30px; 
+}
+
+.navbar {
+    background-color: #1a467b; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 30px;
+    border-radius: 50px; 
+    gap: 35px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 5px 15px;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #bdc3c7;
+}
+
+.btn-salir {
+    font-weight: bold;
+}
+
+
+
+/* --- ocultar boton --- */
+.btn-mas {
+    display: none; /* <--- Esto hace que en la lap NO se vea */
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 2px 12px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.btn-mas:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.dropdown-mobile {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* El menú que se despliega */
+
+
+.dropdown-content {
+    display: flex;       /* Los pone en línea con los demás */
+    gap: 35px;           /* El mismo espacio que tus otros botones */
+    position: static;    /* No flota, se queda en la barra */
+    background: none;
+    box-shadow: none;
+}
+
+.dropdown-content a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 15px;
+}
+
+.dropdown-content a:hover {
+    background-color: #2c5da0;
+}
+
+.btn-salir-drop {
+   
+    font-weight: bold;
+}
+
+/* Mostrar menú */
+.show {
+    display: block !important;
+}
+
+/*celular vista/*/  
+@media (max-width: 768px) {
+    /* 1. Ajustes del Header y Logos */
+    .main-header {
+        padding: 10px 0;
+    }
+
+    .logo-container {
+        gap: 15px;
+        padding: 0 15px;
+        margin-bottom: 10px; /* Reduce espacio para que suba el menú */
+    }
+
+    .logo-img {
+        height: 35px; 
+        max-width: 45%;
+        object-fit: contain;
+    }
+
+    /*  Contenedor de la Cápsula */
+    .navbar-container {
+        width: 100%;
+        height: auto; 
+        margin-top: 5px;
+        overflow: visible; /*  Para que el menú desplegable no se corte */
+        display: flex;
+        justify-content: center;
+    }
+
+    .navbar {
+        padding: 8px 15px;
+        border-radius: 25px; 
+        gap: 8px;            
+        width: auto;          
+        max-width: 95%;      
+        flex-wrap: nowrap;   /* En cel  usamos el + */
+        justify-content: center;
+        position: relative;
+    }
+
+    .navbar a {
+        font-size: 11px;
+        padding: 6px 8px;
+        white-space: nowrap; 
+    }
+
+    /* Mostrar el botón "+" y el menú desplegable */
+    .btn-mas {
+        display: block !important; /* Aparece en celular */
+        background-color: transparent;
+        color: white;
+        border: none;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 2px 10px;
+        border-radius: 50px;
+        cursor: pointer;
+    }
+
+    .dropdown-content {
+        display: none; /* Se oculta */
+        position: absolute;
+        right: 0;
+        top: 45px; /* Aparece justo debajo de la cápsula */
+        background-color: #1a467b;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+        border-radius: 12px;
+        z-index: 2000;
+    }
+
+    /* Clase que activa el JS */
+    .dropdown-content.show {
+        display: block !important;
+    }
+
+    .dropdown-content a {
+        color: white;
+        display: block;
+        padding: 12px 16px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        font-size: 13px;
+        text-align: left;
+    }
+
+    .btn-salir-drop {
+        color: white;
+        font-weight: bold;
+    }
+}

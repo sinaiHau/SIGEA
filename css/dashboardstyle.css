@@ -1,0 +1,43 @@
+
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    min-height: 80vh;        /* Ocupa el 80% del alto de la pantalla */
+    padding: 20px 0;
+   
+}
+
+
+.hero-image-container {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    justify-content: center;
+    margin-top: -40px; /* Esto levanta la imagen un poco para que no quede tan pegada al navbar */
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+  /*  border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);*/
+    border: 5px solid white;
+}
+
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        min-height: 70vh; /*el alto para que flote al centro */
+        justify-content: center;
+        padding-top: 5px;
+    }
+
+    .hero-img {
+        width: 92%;   
+     
+      /*  border-radius: 15px;
+        border: 3px solid white; /* Un marco más fino para el cel */
+    }
+}
