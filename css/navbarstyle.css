@@ -93,14 +93,6 @@ h4{
 .nav-mobile { display: none !important; }
 .nav-desktop { display: inline-block; }
 
-.dropbtn:hover  {
-    font-weight: bold;
-}
-
-.dropbtn a:hover {
-    font-weight: bold;
-}
-
 @media (max-width: 768px) {
 
     h4{
