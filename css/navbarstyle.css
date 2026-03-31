@@ -39,7 +39,7 @@ h4{
 }
 
 .navbar {
-    background-color: #1a467b;
+    background-color: #1b396b;
     display: flex;
     top: -20px;
     justify-content: center;
@@ -65,13 +65,18 @@ h4{
 
 /* --- Dropdowns --- */
 .dropdown { position: relative; }
+.dropdown a:hover {
+    background-color: #1a467b;
+    
+
+}
 
 .dropdown-content {
     display: none;
     position: absolute;
     top: 45px;
     left: 0;
-    background-color: #1a467b;
+    background-color: #1b396b;
     min-width: 180px;
     box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
     border-radius: 8px;
@@ -83,6 +88,7 @@ h4{
     display: block;
     padding: 12px 16px;
     border-bottom: 1px solid rgba(255,255,255,0.1);
+   
    
     
 }
@@ -115,6 +121,7 @@ h4{
 
     .navbar a, .dropbtn {
         font-size: 11px;
+
         padding: 6px 6px;
     }
 
@@ -123,7 +130,7 @@ h4{
         position: absolute;
         right: 0;
         top: 45px;
-        background-color: #1a467b;
+        background-color:#1b396b /* #1a467b;*/
         min-width: 150px;
         border-radius: 12px;
         flex-direction: column;
@@ -132,13 +139,12 @@ h4{
 
     .contenido-mas.show { display: flex !important; }
     
-    .btn-mas {
-        background: none;
-        border: none;
-        color: white;
-        font-size: 20px;
-        font-weight: bold;
-        cursor: pointer;
-        padding: 0 8px;
-    }
+.btn-mas {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 8px;
 }

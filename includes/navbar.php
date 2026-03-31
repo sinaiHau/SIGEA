@@ -44,8 +44,8 @@
                         <?php if ($_SESSION['rol'] == 'admin'): ?>
                             <a href=""> Usuarios</a>
                             <a href=""> Institucion</a>
-                            <a href="">Opcion3</a>
-                            <a href="">Opcion4</a>
+                            <a href="importar_alumnos.php">Base de Datos</a>
+                            <a href="tomar_Asistencia.php">Opcion4</a>
                         <?php else: ?>
                             <a href=""> Perfil</a>
                         <?php endif; ?>
