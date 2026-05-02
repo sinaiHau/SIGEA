@@ -20,14 +20,14 @@
             <div class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn" onclick="toggleSubMenu('menuEventos')">Eventos</a>
                 <div id="menuEventos" class="dropdown-content">
-                    <?php if ($_SESSION['rol'] == 'admin' || $_SESSION['rol'] == 'organizador'): ?>
+                    <?php if ($_SESSION['rol'] == 'administrador' || $_SESSION['rol'] == 'organizador'): ?>
                         <a href="">Crear evento</a>
                     <?php endif; ?>
                     <a href="">Calendario de eventos</a>
                 </div>
             </div>
 
-            <?php if ($_SESSION['rol'] == 'admin' || $_SESSION['rol'] == 'organizador'): ?>
+            <?php if ($_SESSION['rol'] == 'administrador' || $_SESSION['rol'] == 'organizador'): ?>
                 <div class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn" onclick="toggleSubMenu('menuReportes')">Reportes</a>
                     <div id="menuReportes" class="dropdown-content">
@@ -37,13 +37,13 @@
                 </div>
             <?php endif; ?>
 
-            <?php if ($_SESSION['rol'] == 'admin' || $_SESSION['rol'] == 'organizador'): ?>
+            <?php if ($_SESSION['rol'] == 'administrador' || $_SESSION['rol'] == 'organizador'): ?>
                 <div class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn" onclick="toggleSubMenu('menuConfigGlobal')">Configuracion</a>
                     <div id="menuConfigGlobal" class="dropdown-content">
-                        <?php if ($_SESSION['rol'] == 'admin'): ?>
+                        <?php if ($_SESSION['rol'] == 'administrador'): ?>
                             <a href=""> Usuarios</a>
-                            <a href=""> Institucion</a>
+                            <a href="gestion_catalogos.php"> Catalogos</a>
                             <a href="importar_alumnos.php">Base de Datos</a>
                             <a href="tomar_Asistencia.php">Opcion4</a>
                         <?php else: ?>
