@@ -1,0 +1,105 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    margin: 0;
+}
+
+.main-container {
+    width: 90%;
+    max-width: 1000px;
+    margin-left: 40px; /* Alineado a la izquierda */
+    margin-top: 30px;
+}
+
+.page-title {
+    color: #1b396b;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+/* Estilo Card del Tec */
+.card-sigea {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+.card-header {
+    background-color: #1b396b; /* Azul marino institucional */
+    color: white;
+    padding: 12px 20px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-body.no-padding {
+    padding: 0;
+}
+
+/* Formulario y Select */
+.form-filtro {
+    display: flex;
+    gap: 15px;
+}
+
+select {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Botones */
+.btn-sigea {
+    background-color: #1b396b;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-check {
+    background-color: #f8f9fa;
+    border: 1px solid #1b396b;
+    color: #1b396b;
+    padding: 5px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-check:hover {
+    background-color: #1b396b;
+    color: white;
+}
+
+/* Tabla */
+.tabla-sigea {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-sigea th {
+    background-color: #f8f9fa;
+    text-align: left;
+    padding: 12px 20px;
+    border-bottom: 2px solid #eee;
+    font-size: 13px;
+    color: #555;
+}
+
+.tabla-sigea td {
+    padding: 12px 20px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}

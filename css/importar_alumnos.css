@@ -1,0 +1,107 @@
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: white;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container-admin {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    margin-left: 20px;
+    width: 600px;
+   margin-top: 70px;
+
+}
+
+/* Títulos principales */
+h2 {
+    font-size: 18px;
+    color: #1b396b;
+   
+    font-weight: 700;
+    margin-bottom: 20px;
+    
+}
+
+/* Tarjetas */
+.card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+    overflow: hidden; /* Para que la cabecera azul respete los bordes redondeados */
+    border: 1px solid #dee2e6;
+}
+
+
+
+.card h2, .card h4 {
+    margin: 0;
+    padding: 15px 25px;
+    background-color:#1b396b;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+
+}
+
+/* Contenido interno de la tarjeta */
+.card p, .card form {
+    padding: 20px 25px;
+}
+
+
+.card.alert-warning::before {
+    background-color:white; 
+}
+
+/* Botones  */
+button {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+/* Botón Azul  */
+.btn-primary {
+    background-color: #1b396b;
+    color: white;
+    width: auto;
+}
+
+.btn-primary:hover {
+    background-color: #142a50;
+}
+
+/* Botón  de cerrar ciclo */
+.btn-danger {
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid #ced4da;
+}
+
+.btn-danger:hover {
+    background-color: #f8f9fa;
+    color: #dc3545; /* Rojo solo al pasar el mouse */
+    border-color: #dc3545;
+}
+
+/* Input de archivo */
+input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: #fdfdfd;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}

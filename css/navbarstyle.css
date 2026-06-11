@@ -1,0 +1,150 @@
+h4{
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin-top: 0px;
+    background-color: white;
+
+}
+
+
+.main-header {
+    background-color: white;
+    width: 100%;
+    padding: 0px 0;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px; 
+    margin-bottom: 20px;
+    width: 100%;
+
+}
+
+.logo-img { height: 60px; width: auto; }
+
+/* --- La Cápsula Azul --- */
+.navbar-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.navbar {
+    background-color: #1b396b;
+    display: flex;
+    top: -20px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 60px;
+    border-radius: 50px; 
+    gap: 15px;
+    height: 40px;
+    width: fit-content;
+}
+
+.navbar a, .dropbtn {
+    color: white;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 10px 12px;
+    cursor: pointer;
+    white-space: nowrap;
+    background: none;
+    border: none;
+}
+
+/* --- Dropdowns --- */
+.dropdown { position: relative; }
+.dropdown a:hover {
+    background-color: #1a467b;
+    
+
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 45px;
+    left: 0;
+    background-color: #1b396b;
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+    border-radius: 8px;
+    z-index: 2000;
+    flex-direction: column;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+   
+   
+    
+}
+
+.show { display: flex !important; }
+
+/* --- VISIBILIDAD --- */
+.nav-mobile { display: none !important; }
+.nav-desktop { display: inline-block; }
+
+@media (max-width: 768px) {
+
+    h4{
+        font-size: 10px;
+        padding: 5px;
+
+    }
+    .main-header { padding: 0 0px; }
+   
+    .logo-img { height: 35px; }
+    
+    .nav-desktop { display: none !important; } /* Oculta el texto largo de "Cerrar sesión" */
+    .nav-mobile { display: flex !important; }  /* Muestra el botón de puertecita*/
+
+    .navbar {
+        padding: 0 20px;
+        gap: 5px;
+        height: 40px;
+    }
+
+    .navbar a, .dropbtn {
+        font-size: 11px;
+
+        padding: 6px 6px;
+    }
+
+    .contenido-mas {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 45px;
+        background-color:#1b396b /* #1a467b;*/
+        min-width: 150px;
+        border-radius: 12px;
+        flex-direction: column;
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.4);
+    }
+
+    .contenido-mas.show { display: flex !important; }
+    
+.btn-mas {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 8px;
+}
