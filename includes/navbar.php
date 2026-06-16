@@ -32,7 +32,7 @@
                     <a href="javascript:void(0)" class="dropbtn" onclick="toggleSubMenu('menuReportes')">Reportes</a>
                     <div id="menuReportes" class="dropdown-content">
                         <a href="">Generar reporte</a>
-                        <a href="">Visualizar reportes</a>
+                        <a href="generar_reporte.php">Generar reporte</a>
                     </div>
                 </div>
             <?php endif; ?>
