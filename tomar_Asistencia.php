@@ -1,7 +1,7 @@
 <?php
 session_start();
 $base = "";
-include("includes/conexion.php");
+include("includes/conexion_importarAlumno.php");
 include("includes/navbar.php");
 
 // Consultar grupos disponibles (solo con alumnos activos)
