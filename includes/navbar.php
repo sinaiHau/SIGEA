@@ -37,6 +37,8 @@ if (!isset($base)) {
                     <div id="menuReportes" class="dropdown-content">
                         <a href="<?= $base ?>generar_reportes.php">Generar reporte</a>
                         <a href="">Visualizar reportes</a>
+                        <a href="">Generar reporte</a>
+                        <a href="generar_reporte.php">Generar reporte</a>
                     </div>
                 </div>
             <?php endif; ?>
