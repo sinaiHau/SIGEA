@@ -1,6 +1,6 @@
 <?php
 session_start(); 
-
+$base = "";
 // Si no hay usuario al login 
 if (!isset($_SESSION['rol'])) {
     header("Location: Index.php");

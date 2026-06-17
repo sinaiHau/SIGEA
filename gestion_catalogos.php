@@ -1,5 +1,6 @@
 <?php
 session_start();
+$base = "";
 include('includes/conexion.php');
 include('clases/Catalogo.php');
 

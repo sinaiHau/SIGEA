@@ -1,6 +1,6 @@
 <?php
 $direccionBaseDatos_host= "localhost";
-$nombreBaseDatos = "SIGEA";
+$nombreBaseDatos = "SIGUEA";
 $usuarioBaseDatos = "root";
 $contrasenaBaseDatos = "";
 

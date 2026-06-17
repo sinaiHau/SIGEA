@@ -1,6 +1,10 @@
+<?php
+if (!isset($base)) {
+    $base = "";
+}
+?>
 
-
-<link rel="stylesheet" href="css/navbarstyle.css?v=<?php echo time(); ?>">
+<link rel="stylesheet" href="<?= $base ?>css/navbarstyle.css?v=<?php echo time(); ?>">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 
@@ -8,44 +12,44 @@
     <h4>SIGEA  <?php echo date("Y"); ?>- Instituto tecnologico de Chetumal- <?php echo $_SESSION['rol']; ?> IT Chetumal</h4>
 <header class="main-header">
     <div class="logo-container">
-        <img src="logos/logo3.jpeg" alt="SEP" class="logo-img">
-        <img src="logos/logo2.jpeg" alt="TecNM" class="logo-img">
-        <img src="logos/logo4.jpeg" alt="IT Chetumal" class="logo-img">
+        <img src="<?= $base ?>logos/logo3.jpeg" alt="SEP" class="logo-img">
+        <img src="<?= $base ?>logos/logo2.jpeg" alt="TecNM" class="logo-img">
+        <img src="<?= $base ?>logos/logo4.jpeg" alt="IT Chetumal" class="logo-img">
     </div>
 
     <div class="navbar-container">
         <nav class="navbar">
-            <a href="dashboard2.php">Inicio</a>
+            <a href="<?= $base ?>dashboard2.php">Inicio</a>
 
             <div class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn" onclick="toggleSubMenu('menuEventos')">Eventos</a>
                 <div id="menuEventos" class="dropdown-content">
-                    <?php if ($_SESSION['rol'] == 'admin' || $_SESSION['rol'] == 'organizador'): ?>
+                    <?php if ($_SESSION['rol'] == 'administrador' || $_SESSION['rol'] == 'organizador'): ?>
                         <a href="">Crear evento</a>
                     <?php endif; ?>
-                    <a href="">Calendario de eventos</a>
+                    <a href="<?= $base ?>calendario/indexCalendario.php">Calendario de eventos</a>
                 </div>
             </div>
 
-            <?php if ($_SESSION['rol'] == 'admin' || $_SESSION['rol'] == 'organizador'): ?>
+            <?php if ($_SESSION['rol'] == 'administrador' || $_SESSION['rol'] == 'organizador'): ?>
                 <div class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn" onclick="toggleSubMenu('menuReportes')">Reportes</a>
                     <div id="menuReportes" class="dropdown-content">
-                        <a href="">Generar reporte</a>
+                        <a href="<?= $base ?>generar_reportes.php">Generar reporte</a>
                         <a href="">Visualizar reportes</a>
                     </div>
                 </div>
             <?php endif; ?>
 
-            <?php if ($_SESSION['rol'] == 'admin' || $_SESSION['rol'] == 'organizador'): ?>
+            <?php if ($_SESSION['rol'] == 'administrador' || $_SESSION['rol'] == 'organizador'): ?>
                 <div class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn" onclick="toggleSubMenu('menuConfigGlobal')">Configuracion</a>
                     <div id="menuConfigGlobal" class="dropdown-content">
-                        <?php if ($_SESSION['rol'] == 'admin'): ?>
+                        <?php if ($_SESSION['rol'] == 'administrador'): ?>
                             <a href=""> Usuarios</a>
-                            <a href=""> Institucion</a>
-                            <a href="importar_alumnos.php">Base de Datos</a>
-                            <a href="tomar_Asistencia.php">Opcion4</a>
+                            <a href="<?= $base ?>gestion_catalogos.php""> Catalogos</a>
+                            <a href="<?= $base ?>importar_alumnos.php">Base de Datos</a>
+                            <a href="<?= $base ?>tomar_Asistencia.php">Opcion4</a>
                         <?php else: ?>
                             <a href=""> Perfil</a>
                         <?php endif; ?>
@@ -53,7 +57,7 @@
                 </div>
             <?php endif; ?>
 
-            <a href="logout.php" class="nav-desktop" onclick="return confirmarCerrarSesion()">Cerrar sesión</a>
+            <a href="<?= $base ?>logout.php" class="nav-desktop" onclick="return confirmarCerrarSesion()">Cerrar sesión</a>
 
             <div class="dropdown-mobile nav-mobile">
               

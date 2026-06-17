@@ -2,30 +2,26 @@
 session_start();
 include("includes/conexion.php");
 
+// 1. Aquí recibes lo que viene del index ( name="contrasena" )
 $usuario = $_POST["nombre_usuario"];
-$contrasena = $_POST["contrasena"];
+$password = $_POST["contrasena"]; 
 
+// 2. Aquí usas el nombre real de la columna de tu BD ( password )
+$stmt = $conexion->prepare("SELECT nombre_usuario, rol_usuario FROM usuarios WHERE nombre_usuario = ? AND password = ?");
 
-$stmt = $conexion->prepare("SELECT NOMBRE_USUARIO, ROL FROM usuarios WHERE nombre_usuario = ? AND contrasena = ?");
-
-// Unimos los datos 
-$stmt->bind_param("ss", $usuario, $contrasena);
-
+// 3. Unimos los datos (esto se queda igual)
+$stmt->bind_param("ss", $usuario, $password);
 
 $stmt->execute();
 $resultado = $stmt->get_result();
 
 if ($fila = $resultado->fetch_assoc()) {
-    // Si entró aquí, es que el usuario y contraseña son correctos
-    $_SESSION['usuario'] = $fila['NOMBRE_USUARIO'];
-    $_SESSION['rol'] = $fila['ROL'];
+    $_SESSION['usuario'] = $fila['nombre_usuario'];
+    $_SESSION['rol'] = $fila['rol_usuario'];
    
-
-    // Mandamos a TODOS al mismo archivo
     header("Location: dashboard2.php");
     exit;
 } else {
-    // Si no coinciden, al login con error
     header("Location: index.php?error=1"); 
     exit;
 }

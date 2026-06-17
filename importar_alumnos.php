@@ -1,5 +1,6 @@
 <?php
 session_start();
+$base = "";
 // Llamamos a la bd alumnos
 include("includes/conexion_importarAlumno.php");
 
