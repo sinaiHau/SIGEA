@@ -12,7 +12,7 @@ $tab = isset($_GET['tab']) ? $_GET['tab'] : 'evento';
 
 // ── Cargar catálogos para los filtros ──
 $tipos_evento = $conexion_alumnos->query("SELECT id_tipo_evento, nombre_tipo_evento FROM catalogo_tipo_evento ORDER BY nombre_tipo_evento");
-$grupos       = $conexion_alumnos->query("SELECT id_grupo, grupo FROM catalogo_grupos ORDER BY grupo");
+$grupos       = $conexion_alumnos->query("SELECT id_grupo, nombre_grupo FROM catalogo_grupos ORDER BY nombre_grupo");
 $periodos     = $conexion_alumnos->query("SELECT id_periodo, periodo FROM catalogo_periodo ORDER BY periodo");
 $eventos      = $conexion_alumnos->query("SELECT id_evento, nombre_evento FROM eventos ORDER BY nombre_evento");
 
@@ -33,7 +33,7 @@ if ($tab === 'evento' && isset($_POST['btn_evento'])) {
     $resultados = $conexion_alumnos->query("
         SELECT a.num_control,
                CONCAT(a.nombre_alumno,' ',a.primer_ap_alum,' ',a.segundo_ap_alum) AS nombre,
-               cc.nombre_carrera, cg.grupo, a.semestre_alumno, aa.hora_entrada
+               cc.nombre_carrera, cg.nombre_grupo, a.semestre_alumno, aa.hora_entrada
         FROM asistencia_alumnos aa
         JOIN alumnos a ON aa.id_alumno = a.id_alumno
         LEFT JOIN catalogo_carrera cc ON a.id_carrera = cc.id_carrera
@@ -53,7 +53,7 @@ if ($tab === 'tipo' && isset($_POST['btn_tipo'])) {
         SELECT e.nombre_evento,
                a.num_control,
                CONCAT(a.nombre_alumno,' ',a.primer_ap_alum,' ',a.segundo_ap_alum) AS nombre,
-               cg.grupo, aa.hora_entrada
+               cg.nombre_grupo, aa.hora_entrada
         FROM asistencia_alumnos aa
         JOIN alumnos a ON aa.id_alumno = a.id_alumno
         JOIN eventos e ON aa.id_sesion = e.id_evento
@@ -63,7 +63,7 @@ if ($tab === 'tipo' && isset($_POST['btn_tipo'])) {
     ");
 }
 
-// ── TAB: Por Filtros (fecha/grupo/periodo) ──
+// ── TAB: Por Filtros (fecha/nombre_grupo/periodo) ──
 if ($tab === 'filtros' && isset($_POST['btn_filtros'])) {
     $titulo_reporte = "Asistencia con filtros aplicados";
     $columnas = ['Evento','N° Control','Nombre','Grupo','Semestre','Hora entrada'];
@@ -80,7 +80,7 @@ if ($tab === 'filtros' && isset($_POST['btn_filtros'])) {
     $resultados = $conexion_alumnos->query("
         SELECT e.nombre_evento, a.num_control,
                CONCAT(a.nombre_alumno,' ',a.primer_ap_alum,' ',a.segundo_ap_alum) AS nombre,
-               cg.grupo, a.semestre_alumno, aa.hora_entrada
+               cg.nombre_grupo, a.semestre_alumno, aa.hora_entrada
         FROM asistencia_alumnos aa
         JOIN alumnos a ON aa.id_alumno = a.id_alumno
         JOIN eventos e ON aa.id_sesion = e.id_evento
@@ -121,7 +121,7 @@ if ($tab === 'estadisticas') {
     ");
 
     $stats['por_grupo'] = $conexion_alumnos->query("
-        SELECT cg.grupo, COUNT(aa.id_asistencia_alumno) as total
+        SELECT cg.nombre_grupo, COUNT(aa.id_asistencia_alumno) as total
         FROM asistencia_alumnos aa
         JOIN alumnos a ON aa.id_alumno = a.id_alumno
         JOIN catalogo_grupos cg ON a.id_grupo = cg.id_grupo
@@ -295,7 +295,7 @@ if ($tab === 'estadisticas') {
                 <select name="id_grupo">
                     <option value="">-- Todos --</option>
                     <?php if($grupos) while($g = $grupos->fetch_assoc()): ?>
-                        <option value="<?php echo $g['id_grupo']; ?>"><?php echo htmlspecialchars($g['grupo']); ?></option>
+                        <option value="<?php echo $g['id_grupo']; ?>"><?php echo htmlspecialchars($g['nombre_grupo']); ?></option>
                     <?php endwhile; ?>
                 </select>
             </div>
@@ -419,9 +419,9 @@ if ($tab === 'estadisticas') {
             <?php endif; ?>
         </div>
 
-        <!-- Por grupo -->
+        <!-- Por nombre_grupo -->
         <div class="stat-seccion">
-            <h4><i class="fas fa-users"></i> Distribución por grupo académico</h4>
+            <h4><i class="fas fa-users"></i> Distribución por nombre_grupo académico</h4>
             <?php
             $rows_grp = [];
             if ($stats['por_grupo'] && $stats['por_grupo']->num_rows > 0)
@@ -429,7 +429,7 @@ if ($tab === 'estadisticas') {
             $max_grp = $rows_grp ? max(array_column($rows_grp,'total')) : 1;
             if ($rows_grp): foreach($rows_grp as $r): ?>
             <div class="barra-wrap">
-                <div class="barra-label"><?php echo htmlspecialchars($r['grupo']); ?></div>
+                <div class="barra-label"><?php echo htmlspecialchars($r['nombre_grupo']); ?></div>
                 <div class="barra-bg"><div class="barra-fill" style="width:<?php echo round($r['total']/$max_grp*100); ?>%; background:#e67e22;"></div></div>
                 <div class="barra-num"><?php echo $r['total']; ?></div>
             </div>
